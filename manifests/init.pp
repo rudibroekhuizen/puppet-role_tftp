@@ -37,5 +37,19 @@
 #
 class role_tftp {
 
+  file { '/opt/tftp':
+    ensure => 'directory',
+  }
+
+  class tftp {
+    directory => '/opt/tftp',
+    address   => $::ipaddress,
+    options   => '--timeout 10',
+    require   => File['/opt/tftp']
+  }
+
+  tftp::file { 'WB_15_16_0005.swi':
+    require => Class ['tftp'],
+  }
 
 }
