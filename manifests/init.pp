@@ -41,7 +41,7 @@ class role_tftp {
     ensure => 'directory',
   }
 
-  class tftp {
+  class { 'tftp':
     directory => '/opt/tftp',
     address   => $::ipaddress,
     options   => '--timeout 10',
