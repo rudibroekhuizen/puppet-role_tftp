@@ -48,7 +48,7 @@ class role_tftp {
     require   => File['/opt/tftp']
   }
 
-  tftp::file { 'WB_15_16_0005.swi':
+  tftp::file { 'tftp_files':
     require => Class ['tftp'],
     ensure  => directory
   }
