@@ -37,19 +37,16 @@
 #
 class role_tftp {
 
-  file { '/opt/tftp':
-    ensure => 'directory',
-  }
-
-  class { 'tftp':
-    directory => '/opt/tftp',
-    address   => $::ipaddress,
-    options   => '--timeout 10',
-    require   => File['/opt/tftp']
-  }
-
-  class { 'role_tftp::files':
-    require => Class ['tftp'],
+  class { 'tftp::server':
+    ensure     => 'present',
+    address    => '0.0.0.0:69',
+    create     => true,
+    listen     => true,
+    permissive => true,
+    secure     => true,
+    umask      => '007',
+    verbosity  => 3,
+    tftproot   => '/srv/tftp',
   }
 
 }
