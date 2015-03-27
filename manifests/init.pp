@@ -48,9 +48,8 @@ class role_tftp {
     require   => File['/opt/tftp']
   }
 
-  tftp::file { 'tftp_files':
+  class { 'role_tftp::files':
     require => Class ['tftp'],
-    ensure  => directory
   }
 
 }
