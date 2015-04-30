@@ -48,7 +48,7 @@ class role_tftp {
     require   => File['/opt/tftp']
   }
 
-  tftp::file { 'example_file':
+  tftp::file { 'keys':
     require => Class ['tftp'],
   }
 
