@@ -43,7 +43,6 @@ class role_tftp {
 
   class { 'tftp':
     directory => '/opt/tftp',
-    address   => $::ipaddress,
     options   => '--timeout 10',
     require   => File['/opt/tftp']
   }
