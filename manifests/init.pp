@@ -41,6 +41,7 @@ class role_tftp {
     ensure => 'directory',
   }
 
+  # Settings in /etc/xinetd.d/tftp
   class { 'tftp':
     directory => '/opt/tftp',
     options   => '--timeout 10',
