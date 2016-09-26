@@ -49,7 +49,7 @@ class role_tftp {
   }
 
   tftp::file { 'keys':
-    require => Class ['tftp'],
+    require => Class['tftp'],
   }
 
 }
